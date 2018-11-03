@@ -1,29 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 After initialization, but before game start.
-  File "game/screens.rpy", line 1538, in prepare_screen
+  File "game/screens.rpy", line 1541, in prepare_screen
     screen inventory():
-  File "game/screens.rpy", line 1538, in prepare
+  File "game/screens.rpy", line 1541, in prepare
     screen inventory():
-  File "game/screens.rpy", line 1542, in prepare
+  File "game/screens.rpy", line 1545, in prepare
     use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1542, in prepare
+  File "game/screens.rpy", line 1545, in prepare
     use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1546, in prepare
-    has vbox:
-  File "game/screens.rpy", line 1546, in prepare
+  File "game/screens.rpy", line 1549, in prepare
     has vbox:
   File "game/screens.rpy", line 1549, in prepare
-    for k, v in inventory.items():
-  File "game/screens.rpy", line 1549, in prepare
-    for k, v in inventory.items():
-  File "game/screens.rpy", line 1550, in prepare
-    if v > 0:
-  File "game/screens.rpy", line 1550, in prepare
-    if v > 0:
-  File "game/screens.rpy", line 1551, in prepare
-    text(k v)
-SyntaxError: invalid syntax (game/screens.rpy, line 1551)
+    has vbox:
+  File "game/screens.rpy", line 1554, in prepare
+    if inventory['Cheese'] > 0:
+  File "game/screens.rpy", line 1554, in prepare
+    if inventory['Cheese'] > 0:
+  File "game/screens.rpy", line 1555, in prepare
+    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
+  File "game/screens.rpy", line 1555, in prepare
+    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
+SyntaxError: invalid syntax (game/screens.rpy, line 1555)
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -36,37 +34,35 @@ Full traceback:
     renpy.display.screen.prepare_screens()
   File "E:\Applications\renpy-7.1.1-sdk\renpy\display\screen.py", line 908, in prepare_screens
     s.ast.prepare_screen()
-  File "game/screens.rpy", line 1538, in prepare_screen
+  File "game/screens.rpy", line 1541, in prepare_screen
     screen inventory():
-  File "game/screens.rpy", line 1538, in prepare
+  File "game/screens.rpy", line 1541, in prepare
     screen inventory():
-  File "game/screens.rpy", line 1542, in prepare
+  File "game/screens.rpy", line 1545, in prepare
     use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1542, in prepare
+  File "game/screens.rpy", line 1545, in prepare
     use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1546, in prepare
-    has vbox:
-  File "game/screens.rpy", line 1546, in prepare
+  File "game/screens.rpy", line 1549, in prepare
     has vbox:
   File "game/screens.rpy", line 1549, in prepare
-    for k, v in inventory.items():
-  File "game/screens.rpy", line 1549, in prepare
-    for k, v in inventory.items():
-  File "game/screens.rpy", line 1550, in prepare
-    if v > 0:
-  File "game/screens.rpy", line 1550, in prepare
-    if v > 0:
-  File "game/screens.rpy", line 1551, in prepare
-    text(k v)
+    has vbox:
+  File "game/screens.rpy", line 1554, in prepare
+    if inventory['Cheese'] > 0:
+  File "game/screens.rpy", line 1554, in prepare
+    if inventory['Cheese'] > 0:
+  File "game/screens.rpy", line 1555, in prepare
+    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
+  File "game/screens.rpy", line 1555, in prepare
+    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
   File "E:\Applications\renpy-7.1.1-sdk\renpy\pyanalysis.py", line 699, in ast_eval
     return self.ast_eval_literal(expr)[0]
   File "E:\Applications\renpy-7.1.1-sdk\renpy\pyanalysis.py", line 683, in ast_eval_literal
     expr = py_compile(expr, 'eval', ast_node=True)
   File "E:\Applications\renpy-7.1.1-sdk\renpy\python.py", line 674, in py_compile
     raise e
-SyntaxError: invalid syntax (game/screens.rpy, line 1551)
+SyntaxError: invalid syntax (game/screens.rpy, line 1555)
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 Thalassa 1.0
-Sat Nov 03 01:30:48 2018
+Sat Nov 03 10:34:17 2018

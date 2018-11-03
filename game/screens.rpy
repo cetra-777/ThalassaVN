@@ -75,7 +75,10 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
-
+style inventory:
+    color "#FF0000"
+    hover_color "#0000FF"
+    selected_color "#00FF00"
 
 ################################################################################
 ## In-game screens
@@ -1546,7 +1549,23 @@ screen inventory():
         has vbox:
             spacing 20
 
-        if inventory['Cheese'] > 0:
-            text _("{b}Cheese:{/b} [inventory[Cheese]]")
+        # Example: text _("{b}Civil Engineering:{/b} Where we learn to build targets.")
 
-        text _("{b}Civil Engineering:{/b} Where we learn to build targets.")
+        if inventory['Cheese'] > 0:
+            textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese")
+
+################################################################################
+## Inventory Item Screens
+################################################################################
+screen cheese():
+
+    tag menu
+
+    use game_menu(_("Inventory"), scroll="viewport"):
+
+        style_prefix "inventory"
+
+        has vbox:
+            spacing 20
+
+        text _("{b}Cheese:{/b} Tasty but addictive.")
