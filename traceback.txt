@@ -1,68 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "game/screens.rpy", line 1541, in prepare_screen
-    screen inventory():
-  File "game/screens.rpy", line 1541, in prepare
-    screen inventory():
-  File "game/screens.rpy", line 1545, in prepare
-    use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1545, in prepare
-    use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1549, in prepare
-    has vbox:
-  File "game/screens.rpy", line 1549, in prepare
-    has vbox:
-  File "game/screens.rpy", line 1554, in prepare
-    if inventory['Cheese'] > 0:
-  File "game/screens.rpy", line 1554, in prepare
-    if inventory['Cheese'] > 0:
-  File "game/screens.rpy", line 1555, in prepare
-    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
-  File "game/screens.rpy", line 1555, in prepare
-    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
-SyntaxError: invalid syntax (game/screens.rpy, line 1555)
+After loading the script.
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "E:\Applications\renpy-7.1.1-sdk\renpy\bootstrap.py", line 313, in bootstrap
     renpy.main.main()
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\main.py", line 513, in main
-    run(restart)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\main.py", line 90, in run
-    renpy.display.screen.prepare_screens()
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\screen.py", line 908, in prepare_screens
-    s.ast.prepare_screen()
-  File "game/screens.rpy", line 1541, in prepare_screen
-    screen inventory():
-  File "game/screens.rpy", line 1541, in prepare
-    screen inventory():
-  File "game/screens.rpy", line 1545, in prepare
-    use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1545, in prepare
-    use game_menu(_("Inventory"), scroll="viewport"):
-  File "game/screens.rpy", line 1549, in prepare
-    has vbox:
-  File "game/screens.rpy", line 1549, in prepare
-    has vbox:
-  File "game/screens.rpy", line 1554, in prepare
-    if inventory['Cheese'] > 0:
-  File "game/screens.rpy", line 1554, in prepare
-    if inventory['Cheese'] > 0:
-  File "game/screens.rpy", line 1555, in prepare
-    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
-  File "game/screens.rpy", line 1555, in prepare
-    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese", text_style "inventory_button_text")
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\pyanalysis.py", line 699, in ast_eval
-    return self.ast_eval_literal(expr)[0]
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\pyanalysis.py", line 683, in ast_eval_literal
-    expr = py_compile(expr, 'eval', ast_node=True)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\python.py", line 674, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/screens.rpy, line 1555)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\main.py", line 415, in main
+    if renpy.parser.report_parse_errors():
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\parser.py", line 2787, in report_parse_errors
+    renpy.display.error.report_parse_errors(full_text, error_fn)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\error.py", line 187, in report_parse_errors
+    error_fn=error_fn,
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\game.py", line 281, in invoke_in_new_context
+    return callable(*args, **kwargs)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\error.py", line 45, in call_exception_screen
+    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\ui.py", line 289, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 2662, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 3340, in interact_core
+    self.quit_event()
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 2366, in quit_event
+    renpy.exports.take_screenshot()
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\exports.py", line 1574, in take_screenshot
+    renpy.game.interface.take_screenshot(scale, background=background)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 2112, in take_screenshot
+    surf = renpy.display.scale.smoothscale(surf, scale)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\scale.py", line 95, in real_smoothscale
+    dest = pgrender.surface_unscaled(size, src)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\pgrender.py", line 118, in surface
+    surf = Surface((width + 4, height + 4), 0, sample)
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
-Thalassa 1.0
-Sat Nov 03 10:34:17 2018
+ 
+Sat Nov 03 10:56:50 2018

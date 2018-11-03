@@ -1538,6 +1538,14 @@ transform ctc_appear:
 ################################################################################
 ## Custom Inventory Screen
 ################################################################################
+style inventory_items is button:
+    background "#FFFF00"
+style inventory_items_text is text:
+    size 22
+    hover_color "#FF00FF"
+    outlines [ (0, "#0000FF", 1, 1) ]
+    color "#FF0000"
+
 screen inventory():
 
     tag menu
@@ -1552,7 +1560,7 @@ screen inventory():
         # Example: text _("{b}Civil Engineering:{/b} Where we learn to build targets.")
 
         if inventory['Cheese'] > 0:
-            textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese")
+            textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese") style "inventory_items"
 
 ################################################################################
 ## Inventory Item Screens
