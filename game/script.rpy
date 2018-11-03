@@ -12,10 +12,15 @@ define k = Character("Kor Ti")
 define n = Character("Narrator")
 
 # Declare variables used by this game.
-default variableOne = False
+default cheese = 0
+default inventory = {}
+
 # The game starts here.
 
 label start:
+
+    # Setup Inventory used by this game.
+    $ inventory['Cheese'] = 0
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -35,9 +40,10 @@ label start:
 
     n "This is Evette Sinclaire. A run of the mill worker at the Sea Foam Cafe in Asfaelia."
 
+    $ inventory['Cheese'] += 1
     show evie waving
 
-    e "Hello!"
+    e "Hello! Here is some cheese!"
 
     n "She doesn't know it yet but you and her are going to be having quite and adventure!"
 
@@ -51,9 +57,10 @@ label start:
 
     e "Oh hello! Welcome to the Sea Foam. What can I get started for you."
 
+    $ inventory['Cheese'] += 1
     show subitha cloak at right
 
-    s "A black coffee please."
+    s "A black coffee please, and here is some more cheese."
 
     e "Okie-dokie, have that for you in just a second"
 

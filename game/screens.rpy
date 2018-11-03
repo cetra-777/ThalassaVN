@@ -1546,6 +1546,7 @@ screen inventory():
         has vbox:
             spacing 20
 
-        text _("{b}Mechanical Engineering:{/b} Where we learn to build things like missiles and bombs.")
+        if inventory['Cheese'] > 0:
+            text _("{b}Cheese:{/b} [inventory[Cheese]]")
 
         text _("{b}Civil Engineering:{/b} Where we learn to build targets.")
