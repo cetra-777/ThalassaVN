@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 46: play requires a file
+    play doorbell
+                 ^
+
+Ren'Py Version: Ren'Py 7.1.1.929
+Fri Nov 02 20:24:15 2018
