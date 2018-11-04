@@ -1,0 +1,42 @@
+################################################################################
+## Custom Inventory Screen
+################################################################################
+style inventory_items is button:
+    background "#b2b2a9"
+style inventory_items_text is text:
+    size 22
+    hover_color "#d6db4a"
+    outlines [ (0, "#b2b2b0", 1, 1) ]
+    color "#1c2428"
+
+screen inventory():
+
+    tag menu
+
+    use game_menu(_("Inventory"), scroll="viewport"):
+
+        style_prefix "inventory"
+
+        has vbox:
+            spacing 20
+
+        # Example: text _("{b}Civil Engineering:{/b} Where we learn to build targets.")
+
+        if inventory['Cheese'] > 0:
+            textbutton _("{b}Cheese:{/b}                :: [inventory[Cheese]] ::") action ShowMenu("cheese") style "inventory_items"
+
+################################################################################
+## Inventory Item Screens
+################################################################################
+screen cheese():
+
+    tag menu
+
+    use game_menu(_("Inventory"), scroll="viewport"):
+
+        style_prefix "inventory"
+
+        has vbox:
+            spacing 20
+
+        text _("{b}Cheese:{/b} Tasty but addictive.")

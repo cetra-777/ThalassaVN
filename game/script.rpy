@@ -12,58 +12,48 @@ define k = Character("Kor Ti")
 define n = Character("Narrator")
 
 # Declare variables used by this game.
-default cheese = 0
-default inventory = {}
+default inventory = []
+default selected_item = None
+default pc = Player(7, 5, 5, 3, 2, 1)
+
+default sword_item = Weapon("item1", 10, 5, "sword")
+default pie_item = Consumable("item2", 50, 100, 0)
+default cauldron_item = KeyItem("item2")
+default shield_item = Armor("item1", 15, 5, 4, "shield")
 
 # The game starts here.
 
 label start:
 
-    # Setup Inventory used by this game.
-    $ inventory['Cheese'] = 0
+    # Setup Inventory and other lists/dicts used by this game.
+    $ numbers = ["One", "Two", "Three", "Four"]
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    # Setup Variables
+    $ image_button_total = 0
 
-    # scene bg room
-    scene bg cafe
+    # Load a scene and show a background.
+    #scene bg example
+    show screen hbox_screen(numbers, 50)
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    # Show a character on the screen.
+    #show evie happy
 
-    # show eileen happy
-    show evie happy
+    n "This is Evette Sinclaire. A run of the mill worker at the Sea Foam Cafe
+    in Asfaelia."
 
-    # These display lines of dialogue.
+    hide screen hbox_screen
+    show screen vbox_screen(numbers, 50)
 
-    n "This is Evette Sinclaire. A run of the mill worker at the Sea Foam Cafe in Asfaelia."
+    n "Thanks for playing."
 
-    $ inventory['Cheese'] += 1
-    show evie waving
+    hide screen vbox_screen
+    show screen grid_screen(numbers, 50)
 
-    e "Hello! Here is some cheese!"
+    n "Thank you"
 
-    n "She doesn't know it yet but you and her are going to be having quite and adventure!"
-
-    e "Wait, what did he say?"
-
-    n "Ahem, nothing, nothing at all. Now then, I believe things are about to begin."
-
-    # play doorbell
-
-    show evie happy at center
-
-    e "Oh hello! Welcome to the Sea Foam. What can I get started for you."
-
-    $ inventory['Cheese'] += 1
-    show subitha cloak at right
-
-    s "A black coffee please, and here is some more cheese."
-
-    e "Okie-dokie, have that for you in just a second"
-
+    hide screen grid_screen
+    show screen combo_screen
+    n "The end"
     # This ends the game.
 
     return

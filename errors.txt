@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1563: expected a keyword argument, colon, or end of line.
-    textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese"), style "inventory_items"
-                                                                                        ^
+File "game/custom_screens.rpy", line 135: expecting name after dot.
+    label "weapon" xalign.0.5
+                            ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Sat Nov 03 10:56:38 2018
+Sat Nov 03 21:25:45 2018

@@ -70,15 +70,9 @@ style vslider:
     base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
     thumb "gui/slider/vertical_[prefix_]thumb.png"
 
-
 style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
-
-style inventory:
-    color "#FF0000"
-    hover_color "#0000FF"
-    selected_color "#00FF00"
 
 ################################################################################
 ## In-game screens
@@ -307,8 +301,6 @@ screen navigation():
             textbutton _("Start") action Start()
 
         else:
-
-            textbutton _("Inventory") action ShowMenu("inventory")
 
             textbutton _("History") action ShowMenu("history")
 
@@ -1516,64 +1508,3 @@ style slider_pref_vbox:
 style slider_pref_slider:
     variant "small"
     xsize 600
-
-################################################################################
-## Click to Continue Screen
-################################################################################
-screen ctc():
-
-    frame:
-        at ctc_appear
-        xalign .99
-        yalign .99
-
-        text _("(click to continue)"):
-            size 18
-
-transform ctc_appear:
-    alpha 0.0
-    pause 5.0
-    linear 0.5 alpha 1.0
-
-################################################################################
-## Custom Inventory Screen
-################################################################################
-style inventory_items is button:
-    background "#FFFF00"
-style inventory_items_text is text:
-    size 22
-    hover_color "#FF00FF"
-    outlines [ (0, "#0000FF", 1, 1) ]
-    color "#FF0000"
-
-screen inventory():
-
-    tag menu
-
-    use game_menu(_("Inventory"), scroll="viewport"):
-
-        style_prefix "inventory"
-
-        has vbox:
-            spacing 20
-
-        # Example: text _("{b}Civil Engineering:{/b} Where we learn to build targets.")
-
-        if inventory['Cheese'] > 0:
-            textbutton _("{b}Cheese:{/b} [inventory[Cheese]]") action ShowMenu("cheese") style "inventory_items"
-
-################################################################################
-## Inventory Item Screens
-################################################################################
-screen cheese():
-
-    tag menu
-
-    use game_menu(_("Inventory"), scroll="viewport"):
-
-        style_prefix "inventory"
-
-        has vbox:
-            spacing 20
-
-        text _("{b}Cheese:{/b} Tasty but addictive.")

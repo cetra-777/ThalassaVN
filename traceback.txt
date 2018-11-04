@@ -1,42 +1,83 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After loading the script.
-TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+While running game code:
+  File "renpy/common/00start.rpy", line 224, in script call
+    call _splashscreen from _call_splashscreen_1
+  File "game/splashscreen.rpy", line 3, in script
+    n "Continue"
+  File "game/custom_screens.rpy", line 111, in execute
+    screen Inventory_screen:
+  File "game/custom_screens.rpy", line 111, in execute
+    screen Inventory_screen:
+  File "game/custom_screens.rpy", line 115, in execute
+    hbox:
+  File "game/custom_screens.rpy", line 118, in execute
+    vbox:
+  File "game/custom_screens.rpy", line 126, in execute
+    label "Defense: [pc.defense]"
+AttributeError: 'Player' object has no attribute 'defense'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\bootstrap.py", line 313, in bootstrap
-    renpy.main.main()
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\main.py", line 415, in main
-    if renpy.parser.report_parse_errors():
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\parser.py", line 2787, in report_parse_errors
-    renpy.display.error.report_parse_errors(full_text, error_fn)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\error.py", line 187, in report_parse_errors
-    error_fn=error_fn,
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\game.py", line 281, in invoke_in_new_context
-    return callable(*args, **kwargs)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\error.py", line 45, in call_exception_screen
-    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\ui.py", line 289, in interact
+  File "renpy/common/00start.rpy", line 224, in script call
+    call _splashscreen from _call_splashscreen_1
+  File "game/splashscreen.rpy", line 3, in script
+    n "Continue"
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\ast.py", line 678, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\exports.py", line 1204, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\character.py", line 1031, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\character.py", line 823, in do_display
+    **display_args)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\character.py", line 572, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\ui.py", line 289, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 2662, in interact
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\core.py", line 2662, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 3340, in interact_core
-    self.quit_event()
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 2366, in quit_event
-    renpy.exports.take_screenshot()
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\exports.py", line 1574, in take_screenshot
-    renpy.game.interface.take_screenshot(scale, background=background)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 2112, in take_screenshot
-    surf = renpy.display.scale.smoothscale(surf, scale)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\scale.py", line 95, in real_smoothscale
-    dest = pgrender.surface_unscaled(size, src)
-  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\pgrender.py", line 118, in surface
-    surf = Surface((width + 4, height + 4), 0, sample)
-TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\core.py", line 3049, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\core.py", line 521, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\core.py", line 521, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\core.py", line 521, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\screen.py", line 424, in visit_all
+    callback(self)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\core.py", line 3049, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\screen.py", line 434, in per_interact
+    self.update()
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\display\screen.py", line 619, in update
+    self.screen.function(**self.scope)
+  File "game/custom_screens.rpy", line 111, in execute
+    screen Inventory_screen:
+  File "game/custom_screens.rpy", line 111, in execute
+    screen Inventory_screen:
+  File "game/custom_screens.rpy", line 115, in execute
+    hbox:
+  File "game/custom_screens.rpy", line 118, in execute
+    vbox:
+  File "game/custom_screens.rpy", line 126, in execute
+    label "Defense: [pc.defense]"
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\ui.py", line 990, in _label
+    text = renpy.text.text.Text(label, style=text_style, substitute=substitute, scope=scope, **text_kwargs)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\text\text.py", line 1385, in __init__
+    self.set_text(text, scope, substitute)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\text\text.py", line 1488, in set_text
+    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)
+  File "C:\Users\sgautreaux\Downloads\renpy-7.1.1-sdk\renpy\substitutions.py", line 244, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 652, in get_field
+AttributeError: 'Player' object has no attribute 'defense'
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
- 
-Sat Nov 03 10:56:50 2018
+Thalassa 1.0
+Sat Nov 03 21:23:11 2018

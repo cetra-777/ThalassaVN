@@ -1,3 +1,3 @@
 label splashscreen:
-    show bg splashscreen
-    pause 5
+    show screen Inventory_screen
+    n "Continue"
