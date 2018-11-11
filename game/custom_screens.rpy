@@ -110,25 +110,47 @@ screen familiar():
 
     tag menu
 
-    use game_menu(_("Inventory"), scroll="viewport"):
+    use game_menu(_("Familiars"), scroll="viewport"):
 
         style_prefix "inventory"
 
         has vbox:
             spacing 20
 
-        python:
-            inv = []
-            for i in range(len(inventory)):
-                inventory_text = inventory[i].name
-                inv.append(inventory_text)
-                inv.append("\n")
-
-        text inv
+        for i in inventory:
+            textbutton i.name action ShowMenu(i.name) style "inventory_items"
 ################################################################################
 ## Inventory Item Screens
 ################################################################################
-screen cheese():
+screen Pixie():
+
+    tag menu
+
+    use game_menu(_("Inventory"), scroll="viewport"):
+
+        style_prefix "inventory"
+
+        hbox:
+            spacing 50
+
+            transform:
+                size(160,160)
+                add "pika.jpg"
+
+            vbox:
+                spacing 20
+
+                text _("{i}Pixie{/i} \n A mischievious wind spirit.")
+
+                text _("{i}Power{/i} \n Mage Hand: Use a targeted gust of wind to \n push buttons at a distance.")
+
+            vbox:
+                textbutton "Equip" action Function(pc.equip_familiar(pixie))
+                textbutton "Unequip" action Function(pc.unequip_familiar(pixie))
+                textbutton "Back" action ShowMenu("familiar")
+
+
+screen Pixie2():
 
     tag menu
 
@@ -139,4 +161,6 @@ screen cheese():
         has vbox:
             spacing 20
 
-        text _("{b}Cheese:{/b} Tasty but addictive.")
+        text _("{b}Pixie2:{/b} Tasty but addictive.")
+
+        textbutton "Back" action ShowMenu("familiar")

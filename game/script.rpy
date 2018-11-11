@@ -19,10 +19,13 @@ default pc = Player(10, 5, 10, 5, 2, 1, 0, 0, 0, "Pixie", "Steel Ring")
 
 # name, hp_bonus, mp_bonus, charm_bonus, courage_bonus, academics_bonus, ability
 default pixie = Familiar("Pixie", 1, 1, 1, 0, 0)
+default ring = Familiar("Ring", 0, 0, 0, 0, 0)
 
 # The game starts here.
 
 label start:
+
+    # images
 
     # Starting Items
 
@@ -34,15 +37,20 @@ label start:
 
     n "This is Evette Sinclaire. A run of the mill worker at the Sea Foam Cafe
     in Asfaelia."
-
+    $ pc.equip_familiar(ring)
+    
     n "Her stats are: hp [pc.hp] mp [pc.mp] atk [pc.atk] defense [pc.defense] charm [pc.charm] courage [pc.courage] academics [pc.academics] familiar [pc.familiar] amulet [pc.amulet]"
 
     n "Here"
     $ inventory.append(pixie)
+    $ inventory.append(ring)
     $ pc.equip_familiar(pixie)
 
     n "Now her stats are: hp [pc.hp] mp [pc.mp] atk [pc.atk] defense [pc.defense] charm [pc.charm] courage [pc.courage] academics [pc.academics] familiar [pc.familiar.name] amulet [pc.amulet]"
 
+    $pc.unequip_familiar(pixie)
+
+    n "Now her stats are: hp [pc.hp] mp [pc.mp] atk [pc.atk] defense [pc.defense] charm [pc.charm] courage [pc.courage] academics [pc.academics] familiar [pc.familiar.name] amulet [pc.amulet]"
     # This ends the game.
 
     return
