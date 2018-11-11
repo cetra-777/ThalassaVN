@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/character.rpy", line 37: invalid syntax
-        def unequip_familiar(pc.familiar):
-                                ^
-    
+File "game/custom_screens.rpy", line 156: u'text_' is not a keyword argument or valid child for the hbox statement.
+    text_("Player HP: " pc.hp)
+         ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Sun Nov 11 11:24:29 2018
+Sun Nov 11 11:47:49 2018

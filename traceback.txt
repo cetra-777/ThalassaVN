@@ -1,30 +1,66 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 47, in script
-    $ pc.equip_familiar(pixie)
-  File "game/script.rpy", line 47, in <module>
-    $ pc.equip_familiar(pixie)
-  File "game/character.rpy", line 28, in equip_familiar
-    self.unequip_familiar(self, familiar)
-TypeError: unequip_familiar() takes exactly 1 argument (3 given)
+  File "renpy/common/00action_menu.rpy", line 100, in __call__
+    raise Exception("%r is not a screen or a label." % orig_screen)
+Exception: u'Ring' is not a screen or a label.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 47, in script
-    $ pc.equip_familiar(pixie)
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in script
+    $ ui.interact()
   File "E:\Applications\renpy-7.1.1-sdk\renpy\ast.py", line 882, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "E:\Applications\renpy-7.1.1-sdk\renpy\python.py", line 1913, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/script.rpy", line 47, in <module>
-    $ pc.equip_familiar(pixie)
-  File "game/character.rpy", line 28, in equip_familiar
-    self.unequip_familiar(self, familiar)
-TypeError: unequip_familiar() takes exactly 1 argument (3 given)
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in <module>
+    $ ui.interact()
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\ui.py", line 289, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 2662, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\core.py", line 3467, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 995, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\transition.py", line 47, in event
+    return self.new_widget.event(ev, x, y, st)  # E1101
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 995, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 995, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\screen.py", line 697, in event
+    rv = self.child.event(ev, x, y, st)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 995, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 241, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 995, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 241, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 241, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\viewport.py", line 305, in event
+    rv = super(Viewport, self).event(ev, x, y, st)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 241, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 995, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\layout.py", line 995, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\behavior.py", line 907, in event
+    return handle_click(self.clicked)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\behavior.py", line 842, in handle_click
+    rv = run(action)
+  File "E:\Applications\renpy-7.1.1-sdk\renpy\display\behavior.py", line 315, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_menu.rpy", line 100, in __call__
+    raise Exception("%r is not a screen or a label." % orig_screen)
+Exception: u'Ring' is not a screen or a label.
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 Thalassa 1.0
-Sun Nov 11 11:25:14 2018
+Sun Nov 11 12:02:48 2018

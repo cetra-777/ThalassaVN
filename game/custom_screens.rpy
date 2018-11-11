@@ -120,7 +120,11 @@ screen familiar():
         for i in inventory:
             textbutton i.name action ShowMenu(i.name) style "inventory_items"
 ################################################################################
-## Inventory Item Screens
+## Familiars
+################################################################################
+
+################################################################################
+## Pixie
 ################################################################################
 screen Pixie():
 
@@ -145,12 +149,27 @@ screen Pixie():
                 text _("{i}Power{/i} \n Mage Hand: Use a targeted gust of wind to \n push buttons at a distance.")
 
             vbox:
-                textbutton "Equip" action Function(pc.equip_familiar(pixie))
-                textbutton "Unequip" action Function(pc.unequip_familiar(pixie))
+                textbutton "Equip" action Function(pc.equip_familiar, pixie)
+                textbutton "Unequip" action Function(pc.unequip_familiar, pixie)
                 textbutton "Back" action ShowMenu("familiar")
 
+        vbox:
+            spacing 10
+            ypos 100
 
-screen Pixie2():
+            text _("Player HP: [pc.hp]")
+            text _("Player MP: [pc.mp]")
+            text _("Player Attack [pc.atk]")
+            text _("Player Defense [pc.defense]")
+            text _("Player Charm [pc.charm]")
+            text _("Player Courage [pc.courage]")
+            text _("Player Academics [pc.academics]")
+
+################################################################################
+## Salamander
+################################################################################
+
+screen Salamander():
 
     tag menu
 
@@ -158,9 +177,33 @@ screen Pixie2():
 
         style_prefix "inventory"
 
-        has vbox:
-            spacing 20
+        hbox:
+            spacing 50
 
-        text _("{b}Pixie2:{/b} Tasty but addictive.")
+            transform:
+                size(160,160)
+                add "pika.jpg"
 
-        textbutton "Back" action ShowMenu("familiar")
+            vbox:
+                spacing 20
+
+                text _("{i}Salamander{/i} \n A mischievious fire spirit.")
+
+                text _("{i}Power{/i} \n Mage Hand: Use a targeted gust of wind to \n push buttons at a distance.")
+
+            vbox:
+                textbutton "Equip" action Function(pc.equip_familiar, salamander)
+                textbutton "Unequip" action Function(pc.unequip_familiar, salamander)
+                textbutton "Back" action ShowMenu("familiar")
+
+        vbox:
+            spacing 10
+            ypos 100
+
+            text _("Player HP: [pc.hp]")
+            text _("Player MP: [pc.mp]")
+            text _("Player Attack [pc.atk]")
+            text _("Player Defense [pc.defense]")
+            text _("Player Charm [pc.charm]")
+            text _("Player Courage [pc.courage]")
+            text _("Player Academics [pc.academics]")

@@ -25,22 +25,25 @@ init python:
 
         def equip_familiar(self, familiar):
             if self.familiar != None:
-                self.unequip_familiar(self, familiar)
+                self.unequip_familiar(familiar)
 
             self.familiar = familiar
             self.hp += self.familiar.hp_bonus
             self.mp += self.familiar.mp_bonus
+            self.atk += self.familiar.atk_bonus
+            self.defense += self.familiar.def_bonus
             self.charm += self.familiar.charm_bonus
             self.courage += self.familiar.courage_bonus
             self.academics += self.familiar.academics_bonus
 
-        def unequip_familiar(familiar):
+        def unequip_familiar(self, familiar):
             self.familiar = pc.familiar
-            if self.familiar != None:
 
-                self.hp -= self.familiar.hp_bonus
-                self.mp -= self.familiar.mp_bonus
-                self.charm -= self.familiar.charm_bonus
-                self.courage -= self.familiar.courage_bonus
-                self.academics -= self.familiar.academics_bonus
-                self.familiar = None
+            self.hp -= self.familiar.hp_bonus
+            self.mp -= self.familiar.mp_bonus
+            self.atk -= self.familiar.atk_bonus
+            self.defense -= self.familiar.def_bonus
+            self.charm -= self.familiar.charm_bonus
+            self.courage -= self.familiar.courage_bonus
+            self.academics -= self.familiar.academics_bonus
+            self.familiar = ring
