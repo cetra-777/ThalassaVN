@@ -301,6 +301,7 @@ screen navigation():
             textbutton _("Start") action Start()
 
         else:
+            textbutton _("Familiars") action ShowMenu("familiar")
 
             textbutton _("History") action ShowMenu("history")
 

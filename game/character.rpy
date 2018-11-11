@@ -1,48 +1,43 @@
 init python:
     class Player:
-        def __init__(self, hp, mp, atk, defense, mdef, level = 1):
+        def __init__(self, hp, mp, max_hp, max_mp, atk, defense, charm, courage, academics, familiar, amulet):
             self.hp = hp
             self.mp = mp
-            self.max_hp = hp
-            self.max_mp = mp
+            self.max_hp = max_hp
+            self.max_mp = max_mp
             self.atk = atk
             self.defense = defense
-            self.mdef = mdef
-            self.level = level
-            self.weapon = None
-            self.armor = {"head" : None, "chest" : None, "acc" : None, "shield" : None}
+            self.charm = charm
+            self.courage = courage
+            self.academics = academics
+            self.familiar = None
+            self.amulet = None
 
-        def addHP(amount):
+        def addHP(self, amount):
             self.hp += amount
             if self.hp > self.max_hp:
                 self.hp = self.max_hp
 
-        def addMP(amount):
+        def addMP(self, amount):
             self.mp += amount
             if self.mp > self.max_mp:
                 self.mp = self.max_mp
 
-        def equip_weapon(weapon):
-            if self.weapon != None:
-                self.unequip_weapon()
+        def equip_familiar(self, familiar):
+            if self.familiar != None:
+                unequip_familiar()
 
-            self.weapon = weapon
-            self.atk += weapon.atk
+            self.familiar = familiar
+            self.hp += familiar.hp_bonus
+            self.mp += familiar.mp_bonus
+            self.charm += familiar.charm_bonus
+            self.courage += familiar.courage_bonus
+            self.academics += familiar.academics_bonus
 
-        def unequip_weapon():
-            if self.weapon != None:
-                self.atk -= self.weapon.atk
-                self.weapon = None
-
-        def equip_armor(armor, slot):
-            if self.armor[slot] != None:
-                self.unequip_armor(slot)
-            self.armor[slot] = armor
-            self.defense += armor.defense
-            self.mdef += armor.mdef
-
-        def unequip_armor(slot):
-            if self.armor[slot] != None:
-                self.defense -= self.armor[slot].defense
-                self.mdef -= self.armor[slot].mdef
-                self.armor[slot] = None
+        def unequip_familiar(self):
+            self.hp -= familiar.hp_bonus
+            self.mp -= familiar.mp_bonus
+            self.charm -= familiar.charm_bonus
+            self.courage -= familiar.courage_bonus
+            self.academics -= familiar.academics_bonus
+            self.familiar = None

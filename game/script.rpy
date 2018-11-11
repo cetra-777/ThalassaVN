@@ -13,27 +13,21 @@ define n = Character("Narrator")
 
 # Declare variables used by this game.
 default inventory = []
-default selected_item = None
-default pc = Player(7, 5, 5, 3, 2, 1)
 
-default sword_item = Weapon("item1", 10, 5, "sword")
-default pie_item = Consumable("item2", 50, 100, 0)
-default cauldron_item = KeyItem("item2")
-default shield_item = Armor("item1", 15, 5, 4, "shield")
+# hp, mp, max_hp, max_mp, atk, defense, charm, courage, academics, familiar, amulet
+default pc = Player(10, 5, 10, 5, 2, 1, 0, 0, 0, "Pixie", "Steel Ring")
+
+# name, hp_bonus, mp_bonus, charm_bonus, courage_bonus, academics_bonus, ability
+default pixie = Familiar("Pixie", 1, 1, 1, 0, 0)
 
 # The game starts here.
 
 label start:
 
-    # Setup Inventory and other lists/dicts used by this game.
-    $ numbers = ["One", "Two", "Three", "Four"]
+    # Starting Items
+
 
     # Setup Variables
-    $ image_button_total = 0
-
-    # Load a scene and show a background.
-    #scene bg example
-    show screen hbox_screen(numbers, 50)
 
     # Show a character on the screen.
     #show evie happy
@@ -41,19 +35,14 @@ label start:
     n "This is Evette Sinclaire. A run of the mill worker at the Sea Foam Cafe
     in Asfaelia."
 
-    hide screen hbox_screen
-    show screen vbox_screen(numbers, 50)
+    n "Her stats are: hp [pc.hp] mp [pc.mp] atk [pc.atk] defense [pc.defense] charm [pc.charm] courage [pc.courage] academics [pc.academics] familiar [pc.familiar] amulet [pc.amulet]"
 
-    n "Thanks for playing."
+    n "Here"
+    $ inventory.append(pixie)
+    $ pc.equip_familiar(pixie)
 
-    hide screen vbox_screen
-    show screen grid_screen(numbers, 50)
+    n "Now her stats are: hp [pc.hp] mp [pc.mp] atk [pc.atk] defense [pc.defense] charm [pc.charm] courage [pc.courage] academics [pc.academics] familiar [pc.familiar.name] amulet [pc.amulet]"
 
-    n "Thank you"
-
-    hide screen grid_screen
-    show screen combo_screen
-    n "The end"
     # This ends the game.
 
     return

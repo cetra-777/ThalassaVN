@@ -96,57 +96,47 @@ screen combo_screen:
             action Function(incTotal)
 
 ################################################################################
-## Inventory Screen
+## Custom Inventory Screen
 ################################################################################
+style inventory_items is button:
+    background "#b2b2a9"
+style inventory_items_text is text:
+    size 22
+    hover_color "#d6db4a"
+    outlines [ (0, "#b2b2b0", 1, 1) ]
+    color "#1c2428"
 
-style inventory_label:
-    xalign 0.2
+screen familiar():
 
-style slot:
-    background Frame("square", 0,0)
-    minimum (80, 80)
-    maximum (80, 80)
-    xalign 0.5
+    tag menu
 
-screen Inventory_screen:
-    style_prefix "inventory"
+    use game_menu(_("Inventory"), scroll="viewport"):
 
-    add "white"
-    hbox:
-        # Character Status
+        style_prefix "inventory"
 
-        vbox:
-            xmaximum 300
-            spacing 10
-            label "Character Details" xalign 0.5
-            label "Level: [pc.level]"
-            label "HP: [pc.hp]/[pc.max_hp]"
-            label "HP: [pc.mp]/[pc.max_mp]"
-            label "Attack: [pc.atk]"
-            label "Defense: [pc.defense]"
-            label "MDefense: [pc.mdef]"
+        has vbox:
+            spacing 20
 
-            # Equipped Items
-            frame:
-                style "slot"
-                if pc.weapon != None:
-                    add pc.weapon.img
-                else:
-                    label "weapon" xalign 0.5 yalign 0.5 text_size 15
+        python:
+            inv = []
+            for i in range(len(inventory)):
+                inventory_text = inventory[i].name
+                inv.append(inventory_text)
+                inv.append("\n")
 
-            frame:
-                style "slot"
-                if pc.armor["head"] != None:
-                    add pc.armor["head"].img
-                else:
-                    label "head" xalign 0.5 yalign 0.5 text_size 15
+        text inv
+################################################################################
+## Inventory Item Screens
+################################################################################
+screen cheese():
 
+    tag menu
 
-        # Inventory Grid
+    use game_menu(_("Inventory"), scroll="viewport"):
 
-        # Item Details
+        style_prefix "inventory"
 
-    textbutton "Return":
-        action Return()
-        xalign 0.5
-        yalign 0.95
+        has vbox:
+            spacing 20
+
+        text _("{b}Cheese:{/b} Tasty but addictive.")

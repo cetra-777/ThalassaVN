@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/custom_screens.rpy", line 135: expecting name after dot.
-    label "weapon" xalign.0.5
-                            ^
+File "game/custom_screens.rpy", line 125: invalid syntax
+        inv.append "\n"
+                       ^
+    
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Sat Nov 03 21:25:45 2018
+Sun Nov 11 00:40:43 2018
